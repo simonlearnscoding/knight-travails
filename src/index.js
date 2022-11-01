@@ -1,6 +1,7 @@
 import {UICreator} from './modules/interface'
 import {createChessboard} from './modules/chessboard'
 import {createGameFlow} from './modules/gameflow'
+import {createKnight} from './modules/knight'
 import './styles/style.css';
 import * as UI from './modules/interface'
 export const game = {}
@@ -10,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => { startWebsite()}) //typo fo
  function startWebsite() {
     game.ui = UICreator()
     game.chessBoard = createChessboard()
-    game.flow = createGameFlow()
+    game.knight = createKnight(game.chessBoard.fields)
+    game.flow = createGameFlow(game.knight)
    // game.ui.createMainStructure()
  }
 

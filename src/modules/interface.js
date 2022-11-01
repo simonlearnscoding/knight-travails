@@ -1,3 +1,5 @@
+import IconKnight from "./../assets/knight.png"
+import IconKing from "./../assets/king.png"
 export function UICreator() {
 
     // I give the object Some functions through prototypical inhericance and link it to some sections
@@ -138,6 +140,12 @@ function giveID(id) {
         element.id = id
     }
 }
+
+function giveSource(link) {
+    return (element) => {
+        element.src = link
+        }
+    }
 export function createChessboardContent() {
     const options = {
         appendToChessBoard: appendChild('#chessboard'),
@@ -146,6 +154,18 @@ export function createChessboardContent() {
 
     return createDIV(options)
 
+}
+
+export function spawnKnight(field) {
+    const myIcon = new Image()
+    myIcon.src = IconKnight
+    field.element.appendChild( myIcon)
+    }
+
+export function spawnKing(field) {
+    const myIcon = new Image()
+    myIcon.src = IconKing
+    field.element.appendChild(myIcon)
 }
 function addClasslists(classes) {
     return function(element) {
@@ -181,11 +201,23 @@ function createFieldElement() {
         return createDIV(options)
     }
 }
+function createChessIcon(element){
+    const options = {
+        appendToChessField: appendChild(element)
+        //to do: add image source
 
+    }
+    return function createChessIcon(options) {
+    }
+}
+
+
+const createIcon = createElement('img');
 
 const createDIV = createElement('div');
 
 const createTitle = createElement('h1');
 // And now we can
 const createImg = createElement("img");
+
 
