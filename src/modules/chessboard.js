@@ -2,9 +2,27 @@ import {createFieldHTML, createChessboardContent} from './interface'
 import {game} from './../index'
 export function createChessboard() {
     const obj = {}
+    obj.getField = (index) => {
+        const findthem = obj.fields.filter(item => item.index[0] == index[0] && item.index[1] == index[1])
+        return findthem[0]
+
+    }
     obj.html = createChessboardContent()
     obj.fields = createFields(obj)
     obj.fields.forEach((node) => { node.siblings = node.siblingsfn()})
+    obj.resetAllFields = () => {
+        obj.html.innerHTML = ''
+        obj.fields = createFields(obj)
+        obj.fields.forEach((node) => {node.siblings = node.siblingsfn()})
+
+        // obj.fields.forEach(node => {
+
+
+            // node.element.innerText = ""
+            // node.calledFrom = null;
+            // })
+    }
+    obj.removeGrayBoxes = () => {obj.fields.forEach(node => node.element.classList.remove('visited'))}
     return obj
 }
 
@@ -37,9 +55,9 @@ function createField(index, chessBoard) {
     obj.element.addEventListener('click',
         FunctionTrigger.bind(obj))
 
-    function FunctionTrigger() {
+    async function FunctionTrigger() {
         console.log(index)
-        game.flow.playRound(this)
+        await game.flow.playRound(this)
     }
     function createSiblings() {
         const moves = []
@@ -55,3 +73,6 @@ function createField(index, chessBoard) {
     }
     return obj
 }
+
+
+

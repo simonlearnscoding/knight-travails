@@ -117,7 +117,6 @@ const createPrototype = () => {
 const proto = createPrototype()
 
 
-
 const createElement = function( type ){
   return function(options) {
     const el = document.createElement(type);
@@ -159,6 +158,8 @@ export function createChessboardContent() {
 export function spawnKnight(field) {
     const myIcon = new Image()
     myIcon.src = IconKnight
+    myIcon.id = "knight"
+    myIcon.style.position  = "relative"
     field.element.appendChild( myIcon)
     }
 

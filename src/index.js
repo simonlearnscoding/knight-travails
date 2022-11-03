@@ -8,11 +8,12 @@ export const game = {}
 
 document.addEventListener('DOMContentLoaded', () => { startWebsite()}) //typo for testing
 
- function startWebsite() {
+export function startWebsite() {
     game.ui = UICreator()
     game.chessBoard = createChessboard()
     game.knight = createKnight(game.chessBoard.fields)
-    game.flow = createGameFlow(game.knight)
+    game.flow = createGameFlow(game)
+
    // game.ui.createMainStructure()
  }
 

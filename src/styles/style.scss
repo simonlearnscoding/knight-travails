@@ -9,6 +9,7 @@
 }
 
 #container {
+  background: lightgray;
   width: 100%;
   height: 100%;
   display: grid;
@@ -22,6 +23,7 @@
 
 }
 #container > * {
+
   width: 100%;
   height: 100%;
   display: flex;
@@ -30,6 +32,8 @@
 }
 #title {
   grid-area: title;
+  font-size: 2rem;
+  font-family: "DejaVu Sans";
 }
 #chessboard {
   grid-area: chessboard;
@@ -42,6 +46,10 @@
 }
 
 .chessfield{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: bisque;
   height: 40px;
   width: 40px;
   //background: green;
@@ -50,5 +58,9 @@
   //}
   &.black{
     background: #000;
+  }
+  &.visited{
+    transition: background-color 500ms;
+    background: darkgray;
   }
 }
