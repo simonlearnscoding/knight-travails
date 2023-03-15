@@ -1,45 +1,42 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
-    mode: 'development',
-    entry: './src/index.js',
+    mode: "development",
+    entry: "./src/index.js",
     module: {
         rules: [
             {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                use: ["style-loader", "css-loader"],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
+                type: "asset/resource",
             },
         ],
     },
 
-
-
-    devtool: 'inline-source-map',
+    devtool: "inline-source-map",
 
     devServer: {
-        static: './dist',
+        static: "./dist",
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Development',
+            title: "Development",
         }),
     ],
 
-
     output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist'),
+        filename: "[name].bundle.js",
+        path: path.resolve(__dirname, "dist"),
         clean: true,
-        publicPath: '/',
+        publicPath: "/",
     },
     optimization: {
-        runtimeChunk: 'single',
+        runtimeChunk: "single",
     },
-    devtool: 'inline-source-map',
-}
+    devtool: "inline-source-map",
+};

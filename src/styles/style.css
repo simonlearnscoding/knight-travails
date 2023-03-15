@@ -1,3 +1,13 @@
+:root {
+  --primary-color: #34495e;
+  --secondary-color: #2c3e50;
+  --accent-color: #e67e22;
+  --background-color: #e0e0e0;
+  --foreground-color: #1f1f1f;
+  --border-color: #ddd;
+  --error-color: #e74c3c;
+  --success-color: #27ae60;
+}
 * {
   margin: 0;
   height: 100%;
@@ -5,7 +15,7 @@
 }
 
 #container {
-  background: lightgray;
+  background: var(--background-color);
   width: 100%;
   height: 100%;
   display: grid;
@@ -23,7 +33,8 @@
 
 #title {
   grid-area: title;
-  font-size: 2rem;
+  color: var(--primary-color);
+  font-size: 3rem;
   font-family: "DejaVu Sans";
 }
 
@@ -33,7 +44,7 @@
 
 #chessboardContent {
   display: grid;
-  grid-template: repeat(8, 1fr)/repeat(8, 1fr);
+  grid-template: repeat(8, 1fr) / repeat(8, 1fr);
   width: max-content;
   height: max-content;
 }
@@ -42,16 +53,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: bisque;
-  height: 40px;
-  width: 40px;
+  color: var(--border-color);
+  height: 60px;
+  width: 60px;
 }
 .chessfield.black {
-  background: #000;
+  background: var(--foreground-color);
 }
 .chessfield.visited {
-  transition: background-color 500ms;
-  background: darkgray;
+  color: var(--accent-color);
+  transition: background 500ms;
+  background: var(--secondary-color);
 }
 
 /*# sourceMappingURL=style.css.map */
